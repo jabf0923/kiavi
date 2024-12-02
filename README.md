@@ -10,8 +10,8 @@ A Dockerized Ruby on Rails application with Spina CMS, designed for easy local d
 
 ### Initial Setup
 Clone the repository:
-git clone git@github.com:jabf0923/kiavi.git
-cd kiavi
+`git clone git@github.com:jabf0923/kiavi.git`
+`cd kiavi`
 
 Add Spina gem version to test to your Gemfile:
 e.g. "gem 'spina', '~> 2.18'"
