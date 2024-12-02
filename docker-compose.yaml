@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/spina_development
+    volumes:
+      - .:/app
+      - bundle_cache:/bundle
+      - spina_public:/app/public
+      - spina_storage:/app/storage
+
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=spina_development
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  bundle_cache:
+  postgres_data:
+  spina_public:
+  spina_storage:
